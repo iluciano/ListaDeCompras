@@ -1,33 +1,9 @@
-// Wait for device API libraries to load
-//
 document.addEventListener("deviceready", onDeviceReady, false);
-
-// device APIs are available
-//
 function onDeviceReady() {
-    // Empty
+    console.log(navigator.notification);
 }
-
-// Show a custom alert
-//
-function showAlert() {
-    navigator.notification.alert(
-        'You are the winner!',  // message
-        'Game Over',            // title
-        'Done'                  // buttonName
-    );
-}
-
-// Beep three times
-//
-function playBeep() {
-    navigator.notification.beep(3);
-}
-
-// Vibrate for 2 seconds
-//
-function vibrate() {
-    navigator.notification.vibrate(2000);
+function alertDismissed() {
+    // do something
 }
 app.controller('MainController',
 ['$scope', function ($scope) {
@@ -36,8 +12,25 @@ app.controller('MainController',
         { text: "Requeijão", done: false},
         { text:"Manteiga", done: false},
         { text: "Leite do Gabriel", done: false },
+        { text: "Água de Coco", done: false },
+        { text: "Carne", done: false },
+        { text: "Frango", done: false },
         { text: "Pão Integral", done: false }
     ]   
+    $scope.vibrateNotify = function() {
+        navigator.notification.vibrate(500);
+    };
+    $scope.beepNotify = function() {
+        navigator.notification.beep(1);
+    };
+    $scope.MsgFinal = function(){
+        navigator.notification.alert(
+            'Você comprou todos os itens da lista.',
+            alertDismissed,
+            'Lista de Compras',
+            'Feito!'
+        );
+    };
     $scope.TarefasRestantes = function () {
         var count = 0;
         angular.forEach($scope.tarefas, function (tarefa) {
@@ -47,6 +40,9 @@ app.controller('MainController',
             var texto = "Faltam "+ count +" produtos para completar a lista.";
         } else {
             var texto = "Todos os produtos comprados";
+             $scope.vibrateNotify();
+             $scope.beepNotify();
+             $scope.MsgFinal();
         }
         return texto;
     }
