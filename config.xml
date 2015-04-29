@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.igorluciano.hellophonegap" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
-    <name>HelloWordPhonegap</name>
+    <name>Lista de Compras</name>
     <description>
-        Hello World sample application that responds to the deviceready event.
+        Primeiro APP usando Phonegap e AngularJS.
     </description>
-    <author email="support@phonegap.com" href="http://phonegap.com">
-        PhoneGap Team
+    <author email="igorluciano@igorluciano.com.br" href="http://igorluciano.com.br">
+        Igor Luciano
     </author>
     <content src="index.html" />
     <preference name="permissions" value="none" />
