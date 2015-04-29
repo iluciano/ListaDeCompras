@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="http://s3.amazonaws.com/codecademy-content/projects/bootstrap.min.css" rel="stylesheet" />
+    <link href='http://fonts.googleapis.com/css?family=Roboto:500,300,700,400' rel='stylesheet' type='text/css'>
+    <link href="css/main.css" rel="stylesheet" />
+
+    <script src="js/shared/angular.min.js"></script>
+    <script>
+
+        // Wait for device API libraries to load
+        //
+        document.addEventListener("deviceready", onDeviceReady, false);
+
+        // device APIs are available
+        //
+        function onDeviceReady() {
+            // Empty
+        }
+
+        // alert dialog dismissed
+            function alertDismissed() {
+                // do something
+            }
+
+        // Show a custom alertDismissed
+        //
+        function showAlert() {
+            navigator.notification.alert(
+                'You are the winner!',  // message
+                alertDismissed,         // callback
+                'Game Over',            // title
+                'Done'                  // buttonName
+            );
+        }    
+    </script>    
+    </head>
+<body ng-app="myApp">
+    <div class="header">
+        <div class="container">
+            <h1>Lista de Compras</h1>
+        </div>
+    </div>
+    <div class="main" ng-controller="MainController">
+        <div class="container">
+            <h1>{{ title }}</h1>
+            <div class="col-md-6">
+                <input type="text" class="input-search" placeholder="Filtrar produtos" ng-model="search" />
+                <ul ng-repeat="tarefa in tarefas | filter: search">
+                    <li>
+                        <input type="checkbox" ng-model="tarefa.done" />
+                        <label class="label-produtos">{{tarefa.text}}</label>
+                    </li>
+                </ul>
+                <p>{{TarefasRestantes()}}</p>
+                <a href="#" onclick="showAlert(); return false;">Alerta</a>
+            </div>
+        </div>
+    </div>
+
+            <!-- Modules -->
+            <script src="js/app.js"></script>
+
+            <!-- Controllers -->
+            <script src="js/controller/MainController.js"></script>
+    
+</body>
+</html>
