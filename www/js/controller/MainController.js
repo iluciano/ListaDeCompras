@@ -1,3 +1,34 @@
+// Wait for device API libraries to load
+//
+document.addEventListener("deviceready", onDeviceReady, false);
+
+// device APIs are available
+//
+function onDeviceReady() {
+    // Empty
+}
+
+// Show a custom alert
+//
+function showAlert() {
+    navigator.notification.alert(
+        'You are the winner!',  // message
+        'Game Over',            // title
+        'Done'                  // buttonName
+    );
+}
+
+// Beep three times
+//
+function playBeep() {
+    navigator.notification.beep(3);
+}
+
+// Vibrate for 2 seconds
+//
+function vibrate() {
+    navigator.notification.vibrate(2000);
+}
 app.controller('MainController',
 ['$scope', function ($scope) {
     $scope.title = 'Produtos';
@@ -38,7 +69,7 @@ app.controller('MainController',
 		    btnComprar: 'img/botao-quero-comprar.png'
 		},
 		{
-		    name: 'Fog㯠de Piso Continental 5 Bocas Calore Inox Queimador Super Chama e Forno com 97 Litros',
+		    name: 'Fogão de Piso Continental 5 Bocas Calore Inox Queimador Super Chama e Forno com 97 Litros',
 		    price: 1050,
 		    //pubdate: new Date('2013', '08', '01'),
 		    pubdate: 'Cod.(1001)',
