@@ -10,25 +10,8 @@
 
     <script type="text/javascript" src="cordova.js"></script>
     
-    <script type="text/javascript" charset="utf-8">
-
-    // Wait for device API libraries to load
-    //
-    document.addEventListener("deviceready", onDeviceReady, false);
-
-    // device APIs are available
-    //
-    function onDeviceReady() {
-        // Empty
-    }
-    function vibrate() {
-        navigator.notification.vibrate(2000);
-    }
-
-    </script>    
-    
     <script src="js/shared/angular.min.js"></script>
-    </head>
+</head>
 <body ng-app="myApp">
     <div class="header">
         <div class="container">
@@ -47,7 +30,6 @@
                     </li>
                 </ul>
                 <p>{{TarefasRestantes()}}</p>
-                <p><a href="#" onclick="vibrate(); return false;">Vibrate</a></p>
             </div>
         </div>
     </div>
